@@ -7,7 +7,7 @@ arcade.set_background_color(arcade.csscolor.BLUE)
 
 # Get ready to draw
 arcade.start_render()
-# Drawing code goes here
+# Draw snow
 arcade.draw_lrtb_rectangle_filled(0, 599, 300, 0, arcade.csscolor.ALICE_BLUE)
 # Tree trunk
 # Center of 100, 320
