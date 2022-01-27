@@ -22,7 +22,12 @@ arcade.draw_circle_filled(500, 550, 40, arcade.color.BANANA_YELLOW)
 arcade.draw_circle_filled(250, 320, 30, arcade.csscolor.WHITE)
 arcade.draw_circle_filled(250, 350, 25, arcade.csscolor.WHITE)
 arcade.draw_circle_filled(250, 380, 15, arcade.csscolor.WHITE)
+#Draw the arms
 arcade.draw_line(250, 350, 180, 370, arcade.csscolor.BLACK, 2)
+arcade.draw_line(250, 350, 320, 370, arcade.csscolor.BLACK, 2)
+#Draw the eyes
+arcade.draw_circle_filled(240.12, 380, 3, arcade.csscolor.BLACK)
+arcade.draw_circle_filled(260, 380, 3, arcade.csscolor.BLACK)
 
 #Finish drawing
 arcade.finish_render()
