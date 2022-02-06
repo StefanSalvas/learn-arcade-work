@@ -48,9 +48,9 @@ def draw_pine_tree(x, y):
     # Draw the trunk
     arcade.draw_lrtb_rectangle_filled(x + 30, x + 50, y - 100, y - 140,
                                       arcade.color.DARK_BROWN)
-def draw_smalltree(x, y):
+def draw_small_tree(x, y):
     """
-    Draws a small tree
+    Draws a small tree! how fun
     """
     # Draw small tree
     arcade.draw_rectangle_filled(x + 450, x + 120, 20, y + 60, arcade.csscolor.SANDY_BROWN)
@@ -62,7 +62,7 @@ def draw_smalltree(x, y):
 
 def draw_sun(x, y):
     """
-    This function draws a sun.
+    This function draws a yellow sun (Superman would love it!!)
     """
     # Draw the sun
     arcade.draw_circle_filled(530 + x, 500 + y, 105, arcade.csscolor.YELLOW)
@@ -70,7 +70,7 @@ def draw_sun(x, y):
 
 def draw_snowman(x, y):
     """
-    This function draws a snowman
+    This function draws a snowman ( was going to add arms but the lines were insane)
     """
     # Draw a snowman
 
@@ -104,8 +104,8 @@ def main():
     draw_snowman(50, 50)
     draw_snowman(150, 50)
     draw_snowman(0, 0)
-    draw_smalltree(50, 50)
-    draw_smalltree(0, 20)
+    draw_small_tree(50, 50)
+    draw_small_tree(0, 20)
 
     # Finish the render.
     # Nothing will be drawn without this.
