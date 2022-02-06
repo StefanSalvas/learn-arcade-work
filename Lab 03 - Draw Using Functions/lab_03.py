@@ -72,8 +72,8 @@ def draw_snowman(x, y):
     arcade.draw_line(150, 150, 230, 180, arcade.csscolor.BLACK, 2)
 
     # Draw the eyes
-    arcade.draw_circle_filled(x + 30.12, y + 130, 4, arcade.csscolor.BLACK)
-    arcade.draw_circle_filled(x - 5, y + 130, 4, arcade.csscolor.BLACK)
+    arcade.draw_circle_filled(x + 1.12, y + 130, 4, arcade.csscolor.BLACK)
+    arcade.draw_circle_filled(x - 22, y + 130, 4, arcade.csscolor.BLACK)
 
 
 def main():
