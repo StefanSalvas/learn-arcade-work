@@ -1,6 +1,6 @@
 # Library imports
 import arcade
-import random
+
 
 # Constants - variables that do not change
 SCREEN_WIDTH = 600
@@ -72,8 +72,8 @@ def draw_snowman(x, y):
     arcade.draw_line(150, 150, 230, 180, arcade.csscolor.BLACK, 2)
 
     # Draw the eyes
-    arcade.draw_circle_filled(140.12, 180, 4, arcade.csscolor.BLACK)
-    arcade.draw_circle_filled(160, 180, 4, arcade.csscolor.BLACK)
+    arcade.draw_circle_filled(x + 30.12, y + 130, 4, arcade.csscolor.BLACK)
+    arcade.draw_circle_filled(x - 5, y + 130, 4, arcade.csscolor.BLACK)
 
 
 def main():
@@ -94,10 +94,7 @@ def main():
     draw_bird(70, 500)
     draw_bird(470, 550)
     draw_sun(580, 575)
-    for snowman_count in range(10):
-        x = random.randrange(0, SCREEN_WIDTH)
-        y = random.randrange(SCREEN_HEIGHT // 12, SCREEN_HEIGHT - 4)
-        draw_snowman(x, y)
+    draw_snowman(50, 50)
 
     # Finish the render.
     # Nothing will be drawn without this.
