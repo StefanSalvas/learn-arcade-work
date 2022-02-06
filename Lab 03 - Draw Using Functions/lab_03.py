@@ -62,18 +62,13 @@ def draw_snowman(x, y):
     """
     # Draw a snowman
 
-    arcade.draw_circle_filled(150, 120, 30, arcade.csscolor.WHITE)
-    arcade.draw_circle_filled(150, 150, 25, arcade.csscolor.WHITE)
-    arcade.draw_circle_filled(150, 180, 15, arcade.csscolor.WHITE)
-
-    # Draw the arms
-
-    arcade.draw_line(150, 150, 80, 170, arcade.csscolor.BLACK, 2)
-    arcade.draw_line(150, 150, 230, 180, arcade.csscolor.BLACK, 2)
+    arcade.draw_circle_filled(150 + x, 120 + y, 30, arcade.csscolor.WHITE)
+    arcade.draw_circle_filled(150 + x, 150 + y, 25, arcade.csscolor.WHITE)
+    arcade.draw_circle_filled(150 + x, 180 + y, 15, arcade.csscolor.WHITE)
 
     # Draw the eyes
-    arcade.draw_circle_filled(x + 1.12, y + 130, 4, arcade.csscolor.BLACK)
-    arcade.draw_circle_filled(x - 22, y + 130, 4, arcade.csscolor.BLACK)
+    arcade.draw_circle_filled(x + 144, y + 180, 4, arcade.csscolor.BLACK)
+    arcade.draw_circle_filled(x + 158, y + 180, 4, arcade.csscolor.BLACK)
 
 
 def main():
