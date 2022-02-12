@@ -95,9 +95,4 @@ while not done:
         print("Your camel is dead.")
         done = True
 
-
-
-
-
-
-main()
+    main()
