@@ -1,12 +1,12 @@
 import random
 def main():
     print("Welcome to Camel!")
-    print("""You have stolen a camel to make your way across the great Mobi desert.
-The natives want their camel back and are chasing you down! Survive your desert trek and out run the natives.""")
-    print()
+    print("You have stolen a camel to make your way across the great Mobi desert,")
+    print("The natives want their camel back and are chasing you down!")
+    print("Survive your desert trek and outrun the natives.\n")
 
 # variables
-milesTraveled = 0
+miles_Traveled = 0
 thirst = 0
 camelFatigue = 0
 nativesTraveled = -20
@@ -16,7 +16,7 @@ oasis = 0
 
 # start main loop
 while not done:
-    nativesBehind = milesTraveled - nativesTraveled
+    nativesBehind = miles_Traveled - nativesTraveled
     fullSpeed = random.randrange(10, 21)
     moderateSpeed = random.randrange(5, 13)
     print("""
@@ -33,19 +33,19 @@ while not done:
 
 # status
     elif userInput.lower() == "e":
-        print("Miles traveled: ",milesTraveled)
-        print("Drinks in canteen: ",canteen)
-        print("Your camel has ",camelFatigue,"amount of fatigue.")
-        print("The natives are ",nativesBehind,"miles behind you.")
+        print("Miles traveled: ", miles_Traveled)
+        print("Drinks in canteen: ", canteen)
+        print("Your camel has ", camelFatigue, "amount of fatigue.")
+        print("The natives are ", nativesBehind, "miles behind you.")
 # rest for night
     elif userInput.lower() == "d":
         camelFatigue *= 0
-        print("Your camel feels refreshed and happy his fatigue is now ",camelFatigue)
+        print("Your camel feels refreshed and happy his fatigue is now ", camelFatigue)
         nativesTraveled += random.randrange(7, 15)
 # go all out
     elif userInput.lower() == "c":
-        print("You traveled ",fullSpeed,"miles!")
-        milesTraveled += fullSpeed
+        print("You traveled ", fullSpeed, "miles!")
+        miles_Traveled += fullSpeed
         thirst += 1
         camelFatigue += random.randrange(1, 4)
         nativesTraveled += random.randrange(7, 15)
@@ -53,8 +53,8 @@ while not done:
 
 # jog at moderate speed
     elif userInput.lower() == "b":
-        print("You traveled ",moderateSpeed,"miles!")
-        milesTraveled += moderateSpeed
+        print("You traveled ", moderateSpeed, "miles!")
+        miles_Traveled += moderateSpeed
         thirst += 1
         camelFatigue += 1
         nativesTraveled += random.randrange(7, 15)
@@ -67,7 +67,7 @@ while not done:
         else:
             canteen -= 1
             thirst *= 0
-            print("You have ",canteen,"drinks left and you are no longer thirsty.")
+            print("You have ", canteen, "drinks left and you are no longer thirsty.")
 
 # not done check
     if oasis == 20:
@@ -77,10 +77,10 @@ while not done:
         print("You found an oasis! After taking a drink you filled your canteen and the camel is refreshed.")
     if nativesBehind <= 15:
         print("The natives are drawing near!")
-    if milesTraveled >= 200 and not done:
+    if miles_Traveled >= 200 and not done:
         print("You made it across the desert, you win!")
         done = True
-    if nativesTraveled >= milesTraveled:
+    if nativesTraveled >= miles_Traveled:
         print("The natives caught and beheaded you.")
         print("You're dead!")
         done = True
