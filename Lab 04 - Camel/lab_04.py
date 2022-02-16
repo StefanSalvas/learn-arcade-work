@@ -17,7 +17,7 @@ def main():
 
     # start main loop
     while not done:
-        nativesBehind = miles_Traveled - empireTraveled
+        empireBehind = miles_Traveled - empireTraveled
         fullSpeed = random.randrange(10, 21)
         moderateSpeed = random.randrange(5, 13)
         print("""
@@ -37,7 +37,7 @@ def main():
             print("Miles traveled: ", miles_Traveled)
             print("Drinks in canteen: ", canteen)
             print("Your Tantan is this tired ", tantanFatigue)
-            print("The Empire is ", nativesBehind, "miles behind you.")
+            print("The Empire is ", empireBehind, "miles behind you.")
         # rest for night
         elif userInput.lower() == "d":
             tantanFatigue *= 0
@@ -64,11 +64,11 @@ def main():
             # drink from canteen
         elif userInput.lower() == "a":
             if canteen == 0:
-                print("You're out of water.")
+                print("You're out of water uh oh.")
             else:
                 canteen -= 1
                 thirst *= 0
-                print("You have ", canteen, "drinks left and you are no longer thirsty.")
+                print("You have ", canteen, "drinks left and you are no longer thirsty yay.")
 
         # not done check
         if oasis == 20:
@@ -76,7 +76,7 @@ def main():
             thirst *= 0
             canteen = 3
             print("You found an oasis! After taking a drink you filled your canteen and the Tantan is refreshed.")
-        if nativesBehind <= 15:
+        if empireBehind <= 15:
             print("The Empire is drawing near run for your life")
         if miles_Traveled >= 200 and not done:
             print("You made it across the Empire's defense, you win!")
