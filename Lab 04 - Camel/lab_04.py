@@ -2,22 +2,22 @@ import random
 
 
 def main():
-    print("Welcome to Camel!")
-    print("You have stolen a camel to make your way across the great Mobi desert,")
-    print("The natives want their camel back and are chasing you down!")
-    print("Survive your desert trek and outrun the natives.\n")
+    print("Welcome to Hoth!")
+    print("You have stolen a Tantan to make your way across the great Empire defense,")
+    print("The Empire want their Tantan back and are chasing you down!")
+    print("Survive your trek and outrun the Empire's forces.\n")
     # variables
     miles_Traveled = 0
     thirst = 0
-    camelFatigue = 0
-    nativesTraveled = -20
+    tantanFatigue = 0
+    empireTraveled = -20
     canteen = 3
     done = False
     oasis = 0
 
     # start main loop
     while not done:
-        nativesBehind = miles_Traveled - nativesTraveled
+        nativesBehind = miles_Traveled - empireTraveled
         fullSpeed = random.randrange(10, 21)
         moderateSpeed = random.randrange(5, 13)
         print("""
@@ -36,20 +36,20 @@ def main():
         elif userInput.lower() == "e":
             print("Miles traveled: ", miles_Traveled)
             print("Drinks in canteen: ", canteen)
-            print("Your camel has ", camelFatigue, "amount of fatigue.")
-            print("The natives are ", nativesBehind, "miles behind you.")
+            print("Your Tantan is this tired ", tantanFatigue)
+            print("The Empire is ", nativesBehind, "miles behind you.")
         # rest for night
         elif userInput.lower() == "d":
-            camelFatigue *= 0
-            print("Your camel feels refreshed and happy his fatigue is now ", camelFatigue)
-            nativesTraveled += random.randrange(7, 15)
+            tantanFatigue *= 0
+            print("Your Tantan feels refreshed and happy his fatigue is  ", tantanFatigue)
+            empireTraveled += random.randrange(7, 15)
         # go all out
         elif userInput.lower() == "c":
-            print("You traveled ", fullSpeed, "miles! You are as fast as Shadowfaux!!")
+            print("You traveled ", fullSpeed, "miles! You are as fast as a Podracer!!")
             miles_Traveled += fullSpeed
             thirst += 1
-            camelFatigue += random.randrange(1, 4)
-            nativesTraveled += random.randrange(7, 15)
+            tantanFatigue += random.randrange(1, 4)
+            empireTraveled += random.randrange(7, 15)
             oasis = random.randrange(1, 21)
 
         # jog at moderate speed
@@ -57,8 +57,8 @@ def main():
             print("You traveled ", moderateSpeed, "miles! You may want to hurry!!")
             miles_Traveled += moderateSpeed
             thirst += 1
-            camelFatigue += 1
-            nativesTraveled += random.randrange(7, 15)
+            tantanFatigue += 1
+            empireTraveled += random.randrange(7, 15)
             oasis = random.randrange(1, 21)
 
             # drink from canteen
@@ -72,17 +72,17 @@ def main():
 
         # not done check
         if oasis == 20:
-            camelFatigue *= 0
+            tantanFatigue *= 0
             thirst *= 0
             canteen = 3
-            print("You found an oasis! After taking a drink you filled your canteen and the camel is refreshed.")
+            print("You found an oasis! After taking a drink you filled your canteen and the Tantan is refreshed.")
         if nativesBehind <= 15:
-            print("The natives are drawing near!")
+            print("The Empire is drawing near run for your life")
         if miles_Traveled >= 200 and not done:
-            print("You made it across the desert, you win!")
+            print("You made it across the Empire's defense, you win!")
             done = True
-        if nativesTraveled >= miles_Traveled:
-            print("The natives caught and beheaded you.")
+        if empireTraveled >= miles_Traveled:
+            print("The Empire's forces shot you!!.")
             print("You're dead!")
             done = True
         if thirst > 4 and thirst <= 6 and not done:
@@ -90,10 +90,10 @@ def main():
         if thirst > 6:
             print("You died of dehydration! sorry :(")
             done = True
-        if camelFatigue > 5 and camelFatigue <= 8 and not done:
-            print("Your camel is getting tired.")
-        if camelFatigue > 8:
-            print("Your camel is dead.")
+        if tantanFatigue > 5 and tantanFatigue <= 8 and not done:
+            print("Your Tantan is getting tired.")
+        if tantanFatigue > 8:
+            print("Your Tantan is dead.")
             done = True
 main()
 
