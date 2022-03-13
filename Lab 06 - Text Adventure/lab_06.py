@@ -10,9 +10,11 @@ if answer.lower().strip() == "yes":
         if answer == "east":
             print("You notice a massive creature and you die.")
     elif answer == "north":
-        answer == input("You have entered a very highly decorated bedroom. There is a single door leading east go through?")
+        answer == input("You have entered a very highly decorated bedroom. There is a single door leading east go through?").lower().strip()
+        if answer =="east":
+            answer == input("This room has a single door leading north you wonder what it may lead to. Your body feels exhausted you better hurry!!")
     else:
         print("Not an option, you died!!")
 
 else:
-    print ("Maybe another time.")
+    print("Maybe another time.")
