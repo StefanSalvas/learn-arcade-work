@@ -43,7 +43,7 @@ class Snowman:
             self.position_y = SCREEN_HEIGHT - self.radius
 
 class Body:
-    def __init__(self, position_x, position_y, change_x, change_y, radius, color):
+    def __init__(self, position_x, position_y, change_x, change_y, radius, color,):
 
         # Take the parameters of the init function above,
         # and create instance variables out of them.
@@ -53,7 +53,6 @@ class Body:
         self.change_y = change_y
         self.radius = radius
         self.color = color
-
     def draw(self):
         """ Draw the balls with the instance variables we have. """
         arcade.draw_circle_filled(self.position_x,
@@ -94,7 +93,8 @@ class MyGame(arcade.Window):
         arcade.set_background_color(arcade.color.BLUE)
 
         # Create our ball
-        self.body = Snowman(250, 320, 0, 0, 30, arcade.csscolor.WHITE)
+        self.body = Body(250, 320, 0, 0, 30, arcade.csscolor.WHITE)
+        self.ball = Snowman(250, 320, 0, 0, 30, arcade.csscolor.WHITE)
 
 
     def on_draw(self):
@@ -132,10 +132,14 @@ class MyGame(arcade.Window):
             self.ball.change_x = 0
         elif key == arcade.key.UP or key == arcade.key.DOWN:
             self.ball.change_y = 0
+        if key == arcade.key.LEFT or key == arcade.key.RIGHT:
+            self.body.change_x = 0
+        elif key == arcade.key.UP or key == arcade.key.DOWN:
+            self.body.change_y = 0
 
 
 def main():
-    window = MyGame(800, 600, "Drawing Example")
+    window = MyGame(800, 600, "Trying to get Snowman")
     arcade.run()
 
 
