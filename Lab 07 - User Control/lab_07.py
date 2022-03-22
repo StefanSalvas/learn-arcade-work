@@ -91,7 +91,7 @@ class MyGame(arcade.Window):
 
         # Create our snowman
         self.body = Body(250, 320, 0, 0, 30, arcade.csscolor.WHITE)
-        self.ball = Snowman(250, 320, 0, 0, 30, arcade.csscolor.WHITE)
+        self.ball = Snowman(250, 350, 0, 0, 25, arcade.csscolor.WHITE)
 
 
     def on_draw(self):
@@ -114,6 +114,8 @@ class MyGame(arcade.Window):
             self.ball.change_y = MOVEMENT_SPEED
         elif key == arcade.key.DOWN:
             self.ball.change_y = -MOVEMENT_SPEED
+
+    def on_key_press(self, key, modifiers):
         if key == arcade.key.LEFT:
             self.body.change_x = -MOVEMENT_SPEED
         elif key == arcade.key.RIGHT:
@@ -129,6 +131,7 @@ class MyGame(arcade.Window):
             self.ball.change_x = 0
         elif key == arcade.key.UP or key == arcade.key.DOWN:
             self.ball.change_y = 0
+    def on_key_release(self, key, modifiers):
         if key == arcade.key.LEFT or key == arcade.key.RIGHT:
             self.body.change_x = 0
         elif key == arcade.key.UP or key == arcade.key.DOWN:
