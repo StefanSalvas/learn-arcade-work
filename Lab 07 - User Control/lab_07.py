@@ -94,6 +94,7 @@ class MyGame(arcade.Window):
         self.ball = Snowman(250, 350, 0, 0, 25, arcade.csscolor.WHITE)
 
 
+
     def on_draw(self):
         """ Called whenever we need to draw the window. """
         arcade.start_render()
@@ -131,6 +132,7 @@ class MyGame(arcade.Window):
             self.ball.change_x = 0
         elif key == arcade.key.UP or key == arcade.key.DOWN:
             self.ball.change_y = 0
+
     def on_key_release(self, key, modifiers):
         if key == arcade.key.LEFT or key == arcade.key.RIGHT:
             self.body.change_x = 0
