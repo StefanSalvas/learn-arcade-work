@@ -1,25 +1,141 @@
 import arcade
 
-# --- Constants ---
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
+MOVEMENT_SPEED = 3
+
+
+class Snowman:
+    def __init__(self, position_x, position_y, change_x, change_y, radius, color):
+
+        # Take the parameters of the init function above,
+        # and create instance variables out of them.
+        self.position_x = position_x
+        self.position_y = position_y
+        self.change_x = change_x
+        self.change_y = change_y
+        self.radius = radius
+        self.color = color
+
+    def draw(self):
+        """ Draw the balls with the instance variables we have. """
+        arcade.draw_circle_filled(self.position_x,
+                                  self.position_y,
+                                  self.radius, self.
+                                  color)
+
+    def update(self):
+        # Move the ball
+        self.position_y += self.change_y
+        self.position_x += self.change_x
+
+        # See if the ball hit the edge of the screen. If so, change direction
+        if self.position_x < self.radius:
+            self.position_x = self.radius
+
+        if self.position_x > SCREEN_WIDTH - self.radius:
+            self.position_x = SCREEN_WIDTH - self.radius
+
+        if self.position_y < self.radius:
+            self.position_y = self.radius
+
+        if self.position_y > SCREEN_HEIGHT - self.radius:
+            self.position_y = SCREEN_HEIGHT - self.radius
+
+class Body:
+    def __init__(self, position_x, position_y, change_x, change_y, radius, color):
+
+        # Take the parameters of the init function above,
+        # and create instance variables out of them.
+        self.position_x = position_x
+        self.position_y = position_y
+        self.change_x = change_x
+        self.change_y = change_y
+        self.radius = radius
+        self.color = color
+
+    def draw(self):
+        """ Draw the balls with the instance variables we have. """
+        arcade.draw_circle_filled(self.position_x,
+                                  self.position_y,
+                                  self.radius, self.
+                                  color)
+
+    def update(self):
+        # Move the ball
+        self.position_y += self.change_y
+        self.position_x += self.change_x
+
+        # See if the ball hit the edge of the screen. If so, change direction
+        if self.position_x < self.radius:
+            self.position_x = self.radius
+
+        if self.position_x > SCREEN_WIDTH - self.radius:
+            self.position_x = SCREEN_WIDTH - self.radius
+
+        if self.position_y < self.radius:
+            self.position_y = self.radius
+
+        if self.position_y > SCREEN_HEIGHT - self.radius:
+            self.position_y = SCREEN_HEIGHT - self.radius
 
 
 class MyGame(arcade.Window):
-    """ Our Custom Window Class"""
 
-    def __init__(self):
-        """ Initializer """
+    def __init__(self, width, height, title):
 
-        # Call the parent class initializer
-        super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, "Lab 7 - User Control")
+        # Call the parent class's init function
+        super().__init__(width, height, title)
+
+        # Make the mouse disappear when it is over the window.
+        # So we just see our object, not the pointer.
+        self.set_mouse_visible(False)
+
+        arcade.set_background_color(arcade.color.BLUE)
+
+        # Create our ball
+        self.body = Snowman(250, 320, 0, 0, 30, arcade.csscolor.WHITE)
+
 
     def on_draw(self):
+        """ Called whenever we need to draw the window. """
         arcade.start_render()
+        self.ball.draw()
+        self.body.draw()
+
+    def update(self, delta_time):
+        self.ball.update()
+        self.body.update()
+
+    def on_key_press(self, key, modifiers):
+        """ Called whenever the user presses a key. """
+        if key == arcade.key.LEFT:
+            self.ball.change_x = -MOVEMENT_SPEED
+        elif key == arcade.key.RIGHT:
+            self.ball.change_x = MOVEMENT_SPEED
+        elif key == arcade.key.UP:
+            self.ball.change_y = MOVEMENT_SPEED
+        elif key == arcade.key.DOWN:
+            self.ball.change_y = -MOVEMENT_SPEED
+        if key == arcade.key.LEFT:
+            self.body.change_x = -MOVEMENT_SPEED
+        elif key == arcade.key.RIGHT:
+            self.body.change_x = MOVEMENT_SPEED
+        elif key == arcade.key.UP:
+            self.body.change_y = MOVEMENT_SPEED
+        elif key == arcade.key.DOWN:
+            self.body.change_y = -MOVEMENT_SPEED
+
+    def on_key_release(self, key, modifiers):
+        """ Called whenever a user releases a key. """
+        if key == arcade.key.LEFT or key == arcade.key.RIGHT:
+            self.ball.change_x = 0
+        elif key == arcade.key.UP or key == arcade.key.DOWN:
+            self.ball.change_y = 0
 
 
 def main():
-    window = MyGame()
+    window = MyGame(800, 600, "Drawing Example")
     arcade.run()
 
 
