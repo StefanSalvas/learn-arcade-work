@@ -8,8 +8,7 @@ MOVEMENT_SPEED = 3
 class Snowman:
     def __init__(self, position_x, position_y, change_x, change_y, radius, color):
 
-        # Take the parameters of the init function above,
-        # and create instance variables out of them.
+
         self.position_x = position_x
         self.position_y = position_y
         self.change_x = change_x
@@ -25,11 +24,11 @@ class Snowman:
                                   color)
 
     def update(self):
-        # Move the ball
+
         self.position_y += self.change_y
         self.position_x += self.change_x
 
-        # See if the ball hit the edge of the screen. If so, change direction
+
         if self.position_x < self.radius:
             self.position_x = self.radius
 
@@ -45,8 +44,7 @@ class Snowman:
 class Body:
     def __init__(self, position_x, position_y, change_x, change_y, radius, color,):
 
-        # Take the parameters of the init function above,
-        # and create instance variables out of them.
+
         self.position_x = position_x
         self.position_y = position_y
         self.change_x = change_x
@@ -61,11 +59,11 @@ class Body:
                                   color)
 
     def update(self):
-        # Move the ball
+
         self.position_y += self.change_y
         self.position_x += self.change_x
 
-        # See if the ball hit the edge of the screen. If so, change direction
+
         if self.position_x < self.radius:
             self.position_x = self.radius
 
@@ -83,16 +81,15 @@ class MyGame(arcade.Window):
 
     def __init__(self, width, height, title):
 
-        # Call the parent class's init function
+
         super().__init__(width, height, title)
 
-        # Make the mouse disappear when it is over the window.
-        # So we just see our object, not the pointer.
+
         self.set_mouse_visible(False)
 
         arcade.set_background_color(arcade.color.BLUE)
 
-        # Create our ball
+        # Create our snowman
         self.body = Body(250, 320, 0, 0, 30, arcade.csscolor.WHITE)
         self.ball = Snowman(250, 320, 0, 0, 30, arcade.csscolor.WHITE)
 
